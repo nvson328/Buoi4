@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddController;
 use App\Http\Controllers\PostsController;
 use App\Models\posts;
 use App\Models\Test;
@@ -67,5 +68,10 @@ Route::get('/', function () {
 
     
 });
-Route::get('/list',[PostsController::class,'list']);
+Route::get('/list',[PostsController::class,'list'])->name('list');
+Route::get('/add',[PostsController::class,'add'])->name('add');
+Route::post('/add-prod',[PostsController::class,'addprod'])->name('add-prod');
+Route::get('/edit{id}',[PostsController::class,'edit'])->name('edit');
+Route::post('/edit-prod{id}',[PostsController::class,'editprod'])->name('edit-prod');
+Route::get('/del{id}',[PostsController::class,'delete'])->name('del');
 
