@@ -12,8 +12,8 @@
         <td>{{ $rs->id }}</td>
         <td>{{ $rs->slug }}</td>
         <td>{{ $rs->title }}</td>
-        <td><a href="/edit{{ $rs->id }}" >Sửa</a></td>
-        <td><a href="/del{{ $rs->id }}" >Xoá</a></td>
+        <td><a href="{{ route('edit', $rs->id ) }}" >Sửa</a></td>
+        <td><a href="/del{{ $rs->id }}" onclick="return confirm('Bạn có muốn xoá không???')" >Xoá</a></td>
     </tr>
     @endforeach
 </table>

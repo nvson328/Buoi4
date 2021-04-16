@@ -1,9 +1,12 @@
-<form action="{{ Route('edit-prod') }}" method="POST">
+  
+<form action="{{ route('edit-prod',$post->id) }}" method="POST">
     @csrf
-    @method('PUT')
+    {{-- <label for="" >id</label>
+    <input name="id" value="{{ $_GET['id'] }}" type="text"> --}}
     <label for="">Slug</label>
-    <input type="text" name="slug" value="">
+    <input type="text" name="slug" value=" {{ $post->slug }}" >
     <label for="">Title</label>
-    <input type="text" name="title">
+    <input type="text" name="title" value=" {{ $post->slug }}">
     <button type="submit">Đồng ý</button>
+  
 </form>

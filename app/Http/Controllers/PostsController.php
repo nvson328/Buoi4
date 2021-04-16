@@ -13,7 +13,7 @@ class PostsController extends Controller
      * Update the specified user.
      *
      * @param  Request  $request
-     * @param  string  $id
+     * @param  int  $id
      * @return Response
      */
     public function list()
@@ -35,19 +35,27 @@ class PostsController extends Controller
         return redirect()->route('list');
     }
         
-    public function edit(){
-        return view('edit');
+    public function edit($id){
+        $post = posts::query()->findOrFail($id);
+        return view('edit',compact('post'));
     }
+    /**
+     * Update the specified user.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
     public function editprod( Request $request, $id){
         
-        // $slug = $request->input('slug');
-        // $title= $request->input('title');        
-        // $edit = posts::query()->find($id)->update([
-        //     'slug'=> $slug,
-        //     'title'=>$title,           
-        // ]);
-        // return redirect()->route('list');
-        dd($id);
+        $slug = $request->input('slug');
+        $title= $request->input('title');        
+        $edit = posts::query()->find($id)->update([
+            'slug'=> $slug,
+            'title'=>$title,           
+        ]);
+        return redirect()->route('list');
+       
 
     }
     public function delete($id){
