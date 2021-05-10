@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\User;
@@ -44,7 +43,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Post::query()->create($request->only('slug','title','content'));
+        return redirect()->route('posts.index');
     }
 
     /**

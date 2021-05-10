@@ -41,7 +41,9 @@
 			  </div>
 			  <br>
 			  <center><button type="submit" name="submit" class="btn btn-primary mb-2">Submit</button></center>
+
 			</form>
+            <center><a href="{{ route('formemail') }}" type="submit" name="submit" class="btn btn-primary mb-2">Forget Password?</a></center>
 		</div>
 
 		<!-- jQuery -->
